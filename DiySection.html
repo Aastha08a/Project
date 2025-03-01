@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY Section - JoyBox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ribeye+Marrow&family=Coiny&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #ffefd9;
+            color: #3d2a00;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #A77D54;
+            color: white;
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-family: 'Coiny', cursive;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: url('https://i.pinimg.com/736x/dd/8e/7b/dd8e7b260eec9b7fb60efc9d7af562a4.jpg') center/cover no-repeat;
+            color: white;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-family: 'Coiny', cursive;
+            background: #a77e548a;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 20px auto;
+            background: #a77e548a;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .diy-intro {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .diy-intro h2 {
+            font-size: 2.5rem;
+            font-family: 'Coiny', cursive;
+            color: #A77D54;
+        }
+
+        .diy-intro p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+
+        .diy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px 50px;
+            margin-bottom: 50px;
+        }
+
+        .diy-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .diy-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .diy-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .diy-item-content {
+            padding: 20px;
+        }
+
+        .diy-item h3 {
+            font-size: 1.5rem;
+            color: #A77D54;
+            margin-top: 0;
+        }
+
+        .diy-item p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .diy-item .price {
+            font-weight: bold;
+            color: #A77D54;
+            font-size: 1.2rem;
+        }
+
+        .diy-item button {
+            background: #A77D54;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .diy-item button:hover {
+            background: #7b5b3b;
+        }
+
+        .workshop-section {
+            background: #A77D54;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .workshop-section h2 {
+            font-size: 2.5rem;
+            font-family: 'Coiny', cursive;
+        }
+
+        .workshop-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .workshop-form {
+            max-width: 500px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            color: #3d2a00;
+        }
+
+        .workshop-form input, .workshop-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .workshop-form button {
+            background: #664600;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .workshop-form button:hover {
+            background: #352400;
+        }
+
+        .footer {
+            text-align: center;
+            background: #A77D54;
+            color: white;
+            padding: 15px;
+        }
+
+        .success-message {
+            display: none;
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand-name">JoyBox</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutUs.html">About Us</a></li>
+            <li><a href="contactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>DIY Gift Section</h1>
+            <p>Create something special with your own hands - the perfect way to show you care!</p>
+        </div>
+    </div>
+
+    <section class="diy-intro">
+        <h2>Craft Your Own Magic</h2>
+        <p>Welcome to our DIY section, where creativity knows no bounds! Our DIY kits come with everything you need to create beautiful, personalized gifts. Whether you're a crafting expert or a beginner, our easy-to-follow instructions will guide you through the process of making something truly special.</p>
+    </section>
+
+    <div class="diy-grid">
+
+        <div class="diy-item">
+            <img src="https://i.pinimg.com/736x/32/bf/47/32bf47f8ed803de355b4e1b03233e585.jpg" alt="Explosion Box Kit">
+            <div class="diy-item-content">
+                <h3>Explosion Box Kit</h3>
+                <p>Create a surprise box that "explodes" with photos and messages when opened. Perfect for birthdays, anniversaries, or any special occasion.</p>
+                <p class="price">₹599</p>
+                <button onclick="addToCart('Explosion Box Kit')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="diy-item">
+            <img src="https://i.pinimg.com/736x/f2/96/43/f29643d04aa2ec41cb14ac2de5a224e0.jpg" alt="Customized Scrapbook Kit">
+            <div class="diy-item-content">
+                <h3>Customized Scrapbook Kit</h3>
+                <p>Design a beautiful scrapbook filled with memories. Includes decorative papers, stickers, and embellishments.</p>
+                <p class="price">₹799</p>
+                <button onclick="addToCart('Customized Scrapbook Kit')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="diy-item">
+            <img src="https://i.pinimg.com/736x/e1/9e/65/e19e6582f04a4a6f0c125b1d8cb305b3.jpg" alt="Paper Flower Bouquet Kit">
+            <div class="diy-item-content">
+                <h3>Paper Flower Bouquet Kit</h3>
+                <p>Create a stunning bouquet of paper flowers that will last forever. Includes all materials and step-by-step instructions.</p>
+                <p class="price">₹499</p>
+                <button onclick="addToCart('Paper Flower Bouquet Kit')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="diy-item">
+            <img src="https://i.pinimg.com/736x/86/69/2b/86692b382cfe109599b7f90f3f061173.jpg" alt="Custom Phone Case Kit">
+            <div class="diy-item-content">
+                <h3>Custom Phone Case Kit</h3>
+                <p>Design your own phone case with our easy-to-use kit. Includes a clear phone case and various decorative elements.</p>
+                <p class="price">₹399</p>
+                <button onclick="addToCart('Custom Phone Case Kit')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="diy-item">
+            <img src="https://i.pinimg.com/736x/c6/00/ec/c600ec0d56d5632cae46bed9a44fb09c.jpg" alt="Self-Care Box Kit">
+            <div class="diy-item-content">
+                <h3>Self-Care Box Kit</h3>
+                <p>Create a personalized self-care package. Includes materials for bath bombs, face masks, and more.</p>
+                <p class="price">₹899</p>
+                <button onclick="addToCart('Self-Care Box Kit')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="diy-item">
+            <img src="https://i.pinimg.com/736x/e7/4b/55/e74b556f478f51061269d2023ba1efc6.jpg" alt="Memory Jar Kit">
+            <div class="diy-item-content">
+                <h3>Memory Jar Kit</h3>
+                <p>Create a beautiful jar filled with personalized messages. Perfect for graduations, birthdays, or as a thoughtful gift.</p>
+                <p class="price">₹349</p>
+                <button onclick="addToCart('Memory Jar Kit')">Add to Cart</button>
+            </div>
+        </div>
+
+         <div class="diy-item">
+             <img src="https://i.pinimg.com/736x/b1/ce/37/b1ce375ae9c3cd9c68859656cde820fe.jpg" alt="Friendship Bracelet Kit">
+             <div class="diy-item-content">
+                 <h3>Friendship Bracelet Kit</h3>
+                 <p>Make colorful bracelets with beads and charms! Perfect for beginners and gifting to friends.</p>
+                 <p class="price">₹299</p>
+                 <button onclick="addToCart('Friendship Bracelet Kit')">Add to Cart</button>
+             </div>
+         </div>
+     
+         <div class="diy-item">
+             <img src="https://i.pinimg.com/736x/66/25/fd/6625fd85fac4c37f042e0ce0363ea4fc.jpg" alt="DIY Candle Making Kit">
+             <div class="diy-item-content">
+                 <h3>DIY Candle Making Kit</h3>
+                 <p>Create your own scented candles with wax, fragrance oils, and colored dyes. Easy and fun!</p>
+                 <p class="price">₹599</p>
+                 <button onclick="addToCart('DIY Candle Making Kit')">Add to Cart</button>
+             </div>
+         </div>
+     
+         <div class="diy-item">
+             <img src="https://i.pinimg.com/736x/71/78/a5/7178a5f0a661d85f8ba9287dda1920ba.jpg" alt="Mini Terrarium Kit">
+             <div class="diy-item-content">
+                 <h3>Mini Terrarium Kit</h3>
+                 <p>Build a tiny plant world with moss, pebbles, and cute decorations! No maintenance needed.</p>
+                 <p class="price">₹499</p>
+                 <button onclick="addToCart('Mini Terrarium Kit')">Add to Cart</button>
+             </div>
+         </div>
+     
+         <div class="diy-item">
+             <img src="https://i.pinimg.com/736x/ec/3b/62/ec3b6236ac214445742d0927c287ec1b.jpg" alt="Resin Keychain Kit">
+             <div class="diy-item-content">
+                 <h3>Resin Keychain Kit</h3>
+                 <p>Create beautiful resin keychains with glitter, molds, and custom charms. Perfect for gifts!</p>
+                 <p class="price">₹499</p>
+                 <button onclick="addToCart('Resin Keychain Kit')">Add to Cart</button>
+             </div>
+         </div>
+     
+         <div class="diy-item">
+             <img src="https://i.pinimg.com/736x/aa/56/f6/aa56f630ead78a5a587d5e19b2c18a47.jpg" alt="DIY Dreamcatcher Kit">
+             <div class="diy-item-content">
+                 <h3>DIY Dreamcatcher Kit</h3>
+                 <p>Make your own dreamcatcher with hoops, beads, and colorful threads. Great for home decor!</p>
+                 <p class="price">₹399</p>
+                 <button onclick="addToCart('DIY Dreamcatcher Kit')">Add to Cart</button>
+             </div>
+         </div>
+   
+         <div class="diy-item">
+             <img src="https://i.pinimg.com/736x/a0/86/5b/a0865be4e01ea9358c298d4a64437fb1.jpg" alt="Clay Earrings Kit">
+             <div class="diy-item-content">
+                 <h3>Clay Earrings Kit</h3>
+                 <p>Design and bake your own earrings using colorful clay! Super easy and stylish.</p>
+                 <p class="price">₹399</p>
+                 <button onclick="addToCart('Clay Earrings Kit')">Add to Cart</button>
+             </div>
+         </div>
+     
+         <div class="diy-item">
+             <img src="https://i.pinimg.com/736x/39/9b/d5/399bd5cd3a5dc7825f614356b54516fb.jpg" alt="DIY Scented Soap Kit">
+             <div class="diy-item-content">
+                 <h3>DIY Scented Soap Kit</h3>
+                 <p>Make personalized scented soaps with molds and essential oils! Perfect for gifts or self-care.</p>
+                 <p class="price">₹499</p>
+                 <button onclick="addToCart('DIY Scented Soap Kit')">Add to Cart</button>
+             </div>
+         </div>
+
+         <div class="diy-item">
+            <img src="https://i.pinimg.com/736x/b2/04/ae/b204ae73f8e1e9ad94a7da4a7fd8c391.jpg" alt="DIY Tote Bag Painting Kit">
+            <div class="diy-item-content">
+                <h3>DIY Tote Bag Painting Kit</h3>
+                <p>Customize your own tote bag with fabric paints, brushes, and stencils! Great for gifts or personal use.</p>
+                <p class="price">₹499</p>
+                <button onclick="addToCart('DIY Tote Bag Painting Kit')">Add to Cart</button>
+            </div>
+        </div>
+        
+        <div class="diy-item">
+            <img src="https://i.pinimg.com/736x/c2/a3/36/c2a33604ae8fa39003741206aaf31be4.jpg" alt="Origami & Paper Craft Kit">
+            <div class="diy-item-content">
+                <h3>Origami & Paper Craft Kit</h3>
+                <p>Learn origami and create fun paper crafts with patterned papers and easy tutorials.</p>
+                <p class="price">₹349</p>
+                <button onclick="addToCart('Origami & Paper Craft Kit')">Add to Cart</button>
+            </div>
+        </div>
+        
+
+     </div>
+
+
+    <section class="workshop-section">
+        <h2>Join Our DIY Workshops</h2>
+        <p>Learn new crafting techniques and create beautiful gifts in our guided workshops. Perfect for individuals, groups, and special events!</p>
+        
+        <div class="workshop-form">
+            <h3>Register for a Workshop</h3>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <select id="workshop-type">
+                <option value="">Select Workshop</option>
+                <option value="explosion-box">Explosion Box Making</option>
+                <option value="scrapbooking">Scrapbooking Basics</option>
+                <option value="paper-flowers">Paper Flower Crafting</option>
+                <option value="phone-case">Custom Phone Case Design</option>
+            </select>
+            <button onclick="registerWorkshop()">Register Now</button>
+            <p class="success-message" id="workshopSuccess">Registration successful! We'll contact you with details.</p>
+        </div>
+    </section>
+
+    <div class="footer">
+        <p>&copy; 2025 JoyBox. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(item) {
+            cart.push(item);
+            alert(`${item} added to cart! (${cart.length} items in cart)`);
+        }
+
+        function registerWorkshop() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let workshop = document.getElementById('workshop-type').value;
+            let successMessage = document.getElementById('workshopSuccess');
+
+            if (name && email && workshop) {
+                successMessage.style.display = "block";
+                setTimeout(() => {
+                    successMessage.style.display = "none";
+                    document.getElementById('name').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('workshop-type').value = '';
+                }, 3000);
+            } else {
+                alert("Please fill in all fields before submitting.");
+            }
+        }
+    </script>
+
+</body>
+</html>
