@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - JoyBox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ribeye+Marrow&family=Coiny&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #ffefd9;
+            color: #3d2a00;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #A77D54;
+            color: white;
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-family: 'Coiny', cursive;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: url('https://i.pinimg.com/736x/f0/cc/76/f0cc7671e7279bda6906ea89fe4feb70.jpg') center/cover no-repeat;
+            color: white;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-family: 'Coiny', cursive;
+            background: #a77e548a;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 20px auto;
+            background: #a77e548a;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        /* About Section */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-family: 'Coiny', cursive;
+            color: #A77D54;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        /* Interactive Quote Section */
+        .quote-box {
+            background: #9a6734a5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: 50px 20px;
+            border-radius: 10px;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .quote-button {
+            background: #673f02;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .quote-button:hover {
+            background: #352400;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            background: #A77D54;
+            color: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand-name">JoyBox</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>About JoyBox</h1>
+        <p>Bringing joy and creativity to every gift, making moments magical and unforgettable!</p>
+    </div>
+
+    <section class="about-section">
+        <h2>Our Story</h2>
+        <p>JoyBox was created with the vision of spreading happiness through personalized gifts. We believe that gifts should be meaningful, thoughtful, and magical. Our team is passionate about curating unique items that bring smiles and warm hearts. Whether it's a customized phone case, a DIY craft set, or a surprise gift box, we are here to make your gifting experience extraordinary!</p>
+        <img class="about-image" src="https://i.pinimg.com/736x/d6/0a/e8/d60ae8e3f5fff84c54cc6a356665fdd5.jpg" alt="JoyBox Image">
+    </section>
+
+    <div class="quote-box">
+        <p class="quote-text">"Gifting is an art, and we help you paint the perfect picture!"</p>
+        <button class="quote-button" onclick="generateQuote()">New Quote</button>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 JoyBox. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        function generateQuote() {
+            const quotes = [
+                "A thoughtful gift is worth more than a thousand words!",
+                "Every gift holds a story waiting to be told.",
+                "Magic happens when gifts come from the heart.",
+                "Happiness is unwrapping something made just for you!",
+                "Spread love, spread joy – one gift at a time."
+            ];
+
+            let randomIndex = Math.floor(Math.random() * quotes.length);
+            document.querySelector('.quote-text').textContent = quotes[randomIndex];
+        }
+    </script>
+
+</body>
+</html>
