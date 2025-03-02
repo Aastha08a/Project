@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift to Self - JoyBox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ribeye+Marrow&family=Coiny&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #ffefd9;
+      color: #3d2a00;
+      overflow-x: hidden;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #A77D54;
+      color: white;
+      backdrop-filter: blur(5px);
+    }
+    .brand-name {
+      font-size: 1.8rem;
+      font-family: 'Coiny', cursive;
+      font-weight: bold;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li {
+      display: inline;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    .page-title {
+      text-align: center;
+      font-family: 'Coiny', cursive;
+      color: #664600;
+      margin-bottom: 30px;
+    }
+    .intro-text {
+      text-align: center;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+    .form-container {
+      background: #fff5e6;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: inset 0 0 10px rgba(167, 125, 84, 0.2);
+    }
+    .form-section {
+      margin-bottom: 30px;
+    }
+    .form-section h3 {
+      color: #A77D54;
+      border-bottom: 2px solid #A77D54;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #664600;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      background: white;
+      box-sizing: border-box;
+    }
+    /* Increased size for the birthday/date input */
+    input[type="date"] {
+      padding: 14px;
+      font-size: 1.1rem;
+    }
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    .radio-group, .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .radio-option, .checkbox-option {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .submit-btn {
+      background: #664600;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      display: block;
+      margin: 30px auto 0;
+      transition: all 0.3s ease;
+    }
+    .submit-btn:hover {
+      background: #352400;
+      transform: scale(1.05);
+    }
+    .result-container {
+      display: none;
+      margin-top: 40px;
+      text-align: center;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border: 2px dashed #A77D54;
+    }
+    .result-title {
+      color: #664600;
+      font-family: 'Coiny', cursive;
+      margin-bottom: 20px;
+    }
+    .gift-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .gift-image {
+      max-width: 200px;
+      border-radius: 10px;
+      margin: 20px auto;
+      display: block;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    .back-to-home {
+      display: inline-block;
+      margin-top: 20px;
+      color: #A77D54;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .back-to-home:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+        margin: 20px;
+      }
+      .radio-group, .checkbox-group {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand-name">JoyBox</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutUs.html">About Us</a></li>
+      <li><a href="contactUs.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1 class="page-title">A Gift to Self</h1>
+    <p class="intro-text">
+      You deserve something special! Fill out this questionnaire about yourself, and we'll craft a unique surprise gift box tailored just for you. The more we know about you, the more personalized your gift will be!
+    </p>
+
+    <div class="form-container">
+      <form id="selfGiftForm">
+        <div class="form-section">
+          <h3>Basic Information</h3>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="birthdate">Birthday</label>
+            <input type="date" id="birthdate" name="birthdate">
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Personality & Preferences</h3>
+          <div class="form-group">
+            <label>What describes your personality best?</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="adventurous" name="personality" value="adventurous">
+                <label for="adventurous">Adventurous</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="creative" name="personality" value="creative">
+                <label for="creative">Creative</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="practical" name="personality" value="practical">
+                <label for="practical">Practical</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="intellectual" name="personality" value="intellectual">
+                <label for="intellectual">Intellectual</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="social" name="personality" value="social">
+                <label for="social">Social</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="favorite-color">Favorite Color</label>
+            <input type="text" id="favorite-color" name="favorite-color">
+          </div>
+
+          <div class="form-group">
+            <label for="favorite-scent">Favorite Scent/Aroma</label>
+            <input type="text" id="favorite-scent" name="favorite-scent">
+          </div>
+
+          <div class="form-group">
+            <label>What activities do you enjoy? (Select all that apply)</label>
+            <div class="checkbox-group">
+              <div class="checkbox-option">
+                <input type="checkbox" id="reading" name="activities" value="reading">
+                <label for="reading">Reading</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="cooking" name="activities" value="cooking">
+                <label for="cooking">Cooking</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="art" name="activities" value="art">
+                <label for="art">Art & Crafts</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="fitness" name="activities" value="fitness">
+                <label for="fitness">Fitness</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="music" name="activities" value="music">
+                <label for="music">Music</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="travel" name="activities" value="travel">
+                <label for="travel">Travel</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="tech" name="activities" value="tech">
+                <label for="tech">Technology</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Favorites & Preferences</h3>
+          <div class="form-group">
+            <label for="favorite-book">Favorite Book or Genre</label>
+            <input type="text" id="favorite-book" name="favorite-book">
+          </div>
+          <div class="form-group">
+            <label for="favorite-movie">Favorite Movie or TV Show</label>
+            <input type="text" id="favorite-movie" name="favorite-movie">
+          </div>
+          <div class="form-group">
+            <label for="favorite-food">Favorite Food or Cuisine</label>
+            <input type="text" id="favorite-food" name="favorite-food">
+          </div>
+          <div class="form-group">
+            <label for="favorite-place">Favorite Place to Visit</label>
+            <input type="text" id="favorite-place" name="favorite-place">
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Self-Care & Wellness</h3>
+          <div class="form-group">
+            <label>How do you typically relax?</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="bath" name="relaxation" value="bath">
+                <label for="bath">Bath/Spa</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="meditation" name="relaxation" value="meditation">
+                <label for="meditation">Meditation</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="nature" name="relaxation" value="nature">
+                <label for="nature">Nature Walks</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="entertainment" name="relaxation" value="entertainment">
+                <label for="entertainment">Movies/TV</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="other-relax" name="relaxation" value="other">
+                <label for="other-relax">Other</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="self-care">What self-care items do you use regularly?</label>
+            <textarea id="self-care" name="self-care"></textarea>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Additional Information</h3>
+          <div class="form-group">
+            <label for="allergies">Any allergies or sensitivities we should know about?</label>
+            <textarea id="allergies" name="allergies"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="special-message">Any special message you'd like to include with your gift?</label>
+            <textarea id="special-message" name="special-message"></textarea>
+          </div>
+          <!-- New column for specific gift inclusion -->
+          <div class="form-group">
+            <label for="specific-gift">Anything specific you'd like included in your gift?</label>
+            <textarea id="specific-gift" name="specific-gift"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="budget">Budget Range</label>
+            <select id="budget" name="budget">
+              <option value="">Select a range</option>
+              <option value="under-2000">Under ₹499</option>
+              <option value="2000-4000">₹499 - ₹699</option>
+              <option value="4000-8000">₹699 - ₹899</option>
+              <option value="over-8000">Over ₹1000</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Discover My Perfect Gift</button>
+      </form>
+    </div>
+
+
+  </div>
+
+  <script>
+    document.getElementById('selfGiftForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Redirect to the new result page after submission
+      window.location.href = 'result.html';
+    });
+  </script>
+</body>
+</html>
