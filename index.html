@@ -1,76 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Joy Box - A Magical Experience</title>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Ribeye+Marrow&family=Coiny&display=swap" rel="stylesheet">
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy Box - A Magical Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="brand-name">JoyBox</div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutUs.html">About Us</a></li>
+        <li><a href="contactUs.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    
+    <div class="hero" id="home">
+      <div class="hero-content">
+        <div class="image-container">
+          <img src="https://i.pinimg.com/736x/f0/cc/76/f0cc7671e7279bda6906ea89fe4feb70.jpg" alt="Hero Image">
+          <div class="hero-text">
+            <h1>Welcome to JoyBox</h1>
+            <p>Curated gifts for life's special moments</p>
+            <a href="GetIdeas.html"><button class="button">Explore Collections</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <section class="categories">
+      <h2>Our Collections</h2>
+      <div class="category-grid">
+        <div class="category-item">
+          <a href="DiySection.html">
+            <img src="https://i.pinimg.com/736x/dd/8e/7b/dd8e7b260eec9b7fb60efc9d7af562a4.jpg" alt="DIY Section">
+            <p>DIY Creations</p>
+          </a>
+        </div>
+        <div class="category-item">
+          <a href="GiftToSelf.html">
+            <img src="https://i.pinimg.com/736x/eb/53/8c/eb538cccf1fb2120cd671c8ee4f5c6ee.jpg" alt="A Gift to Self">
+            <p>Self-Care Gifts</p>
+          </a>
+        </div>
+        <div class="category-item">
+          <a href="flower.html">
+            <img src="https://i.pinimg.com/736x/da/21/63/da216320f025b1909ab3db666c25d817.jpg" alt="Handmade Flowers That Last Forever">
+            <p>Eternal Blooms</p>
+          </a>
+        </div> 
+        <div class="category-item">
+          <a href="customGifts.html">
+            <img src="https://i.pinimg.com/736x/c6/1b/14/c61b14272b8e5fcd419420e9a303452e.jpg" alt="Customize Gift Section">
+            <p>Custom Gifts</p>
+          </a>
+        </div>
+        <div class="category-item">
+          <a href="phoneCovers.html">
+            <img src="https://i.pinimg.com/736x/97/77/d1/9777d113ef69faa789d88ea0c4c43572.jpg" alt="Phone Cover Section">
+            <p>Phone Accessories</p>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <body>
-        <nav class="navbar">
-            <div class="brand-name">JoyBox</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aboutUs.html">About Us</a></li>
-                <li><a href="contactUs.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        
-        <div class="hero" id="home">
-            <div class="hero-content">
-                <div class="image-container">
-                    <img src="https://i.pinimg.com/736x/f0/cc/76/f0cc7671e7279bda6906ea89fe4feb70.jpg" alt="Hero Image">
-                    <div class="hero-text">
-                        <h1>Welcome to JoyBox</h1>
-                        <p>A magical world of customized gifts and surprises!</p>
-                        <button class="button">Start Customizing</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div> 
-            <p class="shop-now">Lets put a smile on thier face </p>
-        </div>
-        
-        <section class="categories">
-            <h2>Explore Our Collection</h2>
-            <div class="category-grid">
-                <div class="category-item">
-                    <a href="DiySection.html">
-                    <img src="https://i.pinimg.com/736x/dd/8e/7b/dd8e7b260eec9b7fb60efc9d7af562a4.jpg" alt="DIY Section">
-                    <p>DIY Section</p>
-                    </a>
-                </div> 
-                <div class="category-item">
-                    <a href="GiftToSelf.html">
-                    <img src="https://i.pinimg.com/736x/eb/53/8c/eb538cccf1fb2120cd671c8ee4f5c6ee.jpg" alt="A Gift to Self">
-                    <p>A Gift to Self</p>
-                    </a>
-                </div>
-                <div class="category-item">
-                    <img src="https://i.pinimg.com/736x/da/21/63/da216320f025b1909ab3db666c25d817.jpg" alt="Handmade Flowers That Last Forever">
-                    <p>Handmade Flowers That Last Forever</p>
-                </div>
-                <div class="category-item">
-                    <img src="https://i.pinimg.com/736x/c6/1b/14/c61b14272b8e5fcd419420e9a303452e.jpg" alt="Customize Gift Section">
-                    <p>Customize Gift Section</p>
-                </div>
-                <div class="category-item">
-                    <img src="https://i.pinimg.com/736x/97/77/d1/9777d113ef69faa789d88ea0c4c43572.jpg" alt="Phone Cover Section">
-                    <p>Phone Cover Section</p>
-                </div> 
-            </div>
-        </section>
+    <div class="join-club">
+      <h3>Join Our Community</h3>
+      <p>Be the first to discover new collections and exclusive offers</p>
+      <div class="subscribe-form">
+        <input type="email" placeholder="Enter your email address">
+        <button>Subscribe</button>
+      </div>
+    </div>
 
-        <div class="join-club">
-            <h3>Join the Club</h3>
-            <p>Keep it unique everytime!!!</p>
-            <input type="email" placeholder="Enter your email">
-            <button>Subscribe</button>
-        </div>
-    </body>
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("show");
+      }
+    </script>
+  </body>
 </html>

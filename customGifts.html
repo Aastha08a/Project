@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Gifts - JoyBox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #ffffff;
+      color: #2C3338;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: black;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #71461b;
+    }
+
+    .custom-gifts-container {
+      background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+      border-radius: 20px;
+      margin: 100px 20px 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #71461b;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: #71461b;
+      border-radius: 2px;
+    }
+
+    .vibe-section {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .vibe-options {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .vibe-button {
+      padding: 1rem 2rem;
+      border: 2px solid #2C3338;
+      background: #ffffff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      border-radius: 30px;
+      margin: 0.5rem;
+    }
+
+    .vibe-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .vibe-button.active {
+      background: #71461b;
+      color: white;
+      border-color: #71461b;
+    }
+
+    .customization-description {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .customization-description textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #2C3338;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      resize: vertical;
+    }
+
+    .gift-categories {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .category-button {
+      padding: 0.8rem 1.5rem;
+      background: #ffffff;
+      border: 2px solid #2C3338;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .category-button.active {
+      background: #2C3338;
+      color: white;
+    }
+
+    .gift-items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .gift-item {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      animation: slideIn 0.5s ease;
+    }
+
+    .gift-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .gift-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .gift-item-details {
+      padding: 1rem;
+    }
+
+    .gift-item-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .gift-item-price {
+      color: #71461b;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .add-to-box-btn {
+      background: #2C3338;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-box-btn:hover {
+      background: #71461b;
+    }
+
+    .gift-box {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      cursor: move;
+      user-select: none;
+      z-index: 1000;
+    }
+
+    .gift-box-handle {
+      padding: 0.5rem;
+      background: #f5f5f5;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      cursor: move;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .gift-box-handle::before {
+      content: "⋮⋮";
+      color: #71461b;
+    }
+
+    .box-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .box-item-remove {
+      color: #ff4444;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+    }
+
+    .total-price {
+      margin-top: 1rem;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .checkout-btn {
+      background: #71461b;
+      color: white;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 4px;
+      width: 100%;
+      margin-top: 1rem;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    .checkout-btn:hover {
+      background: #2C3338;
+    }
+
+    .options-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .options-list {
+      margin: 1rem 0;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .option-item {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .add-selected,
+    .close-modal {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .add-selected {
+      background: #71461b;
+      color: white;
+    }
+
+    .close-modal {
+      background: #eee;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .gift-categories {
+        flex-wrap: wrap;
+      }
+
+      .gift-box {
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 8px 8px 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand-name">JoyBox</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutUs.html">About Us</a></li>
+      <li><a href="contactUs.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="custom-gifts-container">
+    <div class="vibe-section">
+      <h2 class="section-title">Choose Your Vibe</h2>
+      <div class="vibe-options">
+        <button class="vibe-button">Fairytale</button>
+        <button class="vibe-button">Gothic</button>
+        <button class="vibe-button">Minimalistic</button>
+        <button class="vibe-button">Zodiac Sign Box</button>
+        <button class="vibe-button">Music Lover's Box</button>
+        <button class="vibe-button">Horror Lover's Box</button>
+        <button class="vibe-button">Pastel Dream</button>
+        <button class="vibe-button">Bookworm's Haven</button>
+        <button class="vibe-button">Kawaii Cutie</button>
+        <button class="vibe-button">Dark Academia</button>
+        <button class="vibe-button">Forest Enchantment</button>
+        <button class="vibe-button">Art Lover's Box</button>
+        <button class="vibe-button">Other</button>
+      </div>
+    </div>
+
+    <div class="customization-description">
+      <h2 class="section-title">Describe the Person You're Customizing For</h2>
+      <textarea placeholder="Write a short description here..." rows="4"></textarea>
+    </div>
+
+    <h1 class="section-title">Create Your Custom Gift Box</h1>
+    
+    <div class="gift-categories">
+      <button class="category-button active" data-category="all">All Items</button>
+      <button class="category-button" data-category="selfcare">Self-Care</button>
+      <button class="category-button" data-category="accessories">Accessories</button>
+      <button class="category-button" data-category="men">For Men</button>
+      <button class="category-button" data-category="women">For Women</button>
+      <button class="category-button" data-category="love">Love Gifts</button>
+    </div>
+
+    <div class="gift-items-grid" id="giftItemsGrid"></div>
+  </div>
+
+  <div class="gift-box" id="giftBox">
+    <div class="gift-box-handle">Drag to move</div>
+    <div class="gift-box-title">
+      <span>Your Gift Box</span>
+      <span id="itemCount">(0 items)</span>
+    </div>
+    <div class="gift-box-items" id="giftBoxItems"></div>
+    <div class="total-price" id="totalPrice">Total: ₹0.00</div>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+
+  <script>
+    const giftItems = [
+      {
+        id: 1,
+        name: "Chocolate",
+        price: 12.99,
+        category: "chocolates",
+        image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&q=80&w=400",
+        options: [
+          { id: 'c1', name: "Dairy Milk Silk Oreo", price: 14.99 },
+          { id: 'c2', name: "Dairy Milk Silk Bubbly", price: 13.99 },
+          { id: 'c3', name: "Dairy Milk Fruit and Nut", price: 12.99 },
+          { id: 'c4', name: "Cadbury Temptations Rum & Raisins", price: 15.99 },
+          { id: 'c5', name: "Cadbury Temptations Almond Treat", price: 15.99 }
+        ]
+      },
+      {
+        id: 3,
+        name: "Eternal Rose",
+        price: 29.99,
+        category: "flowers",
+        image: "https://i.pinimg.com/736x/bc/d5/68/bcd568242be9df144345a70e49a6ce64.jpg",
+        redirectTo: "flower.html"
+      },
+      {
+        id: 4,
+        name: "Necklace",
+        price: 39.99,
+        category: "accessories",
+        image: "https://i.pinimg.com/736x/cb/eb/67/cbeb6731afaad993ea9df0b8398373f6.jpg",
+        options: [
+          { id: 'n1', name: "Pearl Drop Necklace", price: 45.99 },
+          { id: 'n2', name: "Gold-Plated Chain", price: 39.99 },
+          { id: 'n3', name: "Crystal Pendant", price: 42.99 },
+          { id: 'n4', name: "Birthstone Necklace", price: 49.99 }
+        ]
+      },
+      {
+        id: 5,
+        name: "Bracelet",
+        price: 19.99,
+        category: "accessories",
+        image: "https://i.pinimg.com/736x/6c/12/b7/6c12b758c0c14ad97dfe0c4d56cd2999.jpg",
+        options: [
+          { id: 'b1', name: "Charm Bracelet", price: 24.99 },
+          { id: 'b2', name: "Tennis Bracelet", price: 29.99 },
+          { id: 'b3', name: "Beaded Bracelet", price: 19.99 },
+          { id: 'b4', name: "Friendship Bracelet", price: 14.99 }
+        ]
+      },
+      {
+        id: 6,
+        name: "Scented Candle",
+        price: 16.99,
+        category: "selfcare",
+        image: "https://i.pinimg.com/736x/ae/91/c8/ae91c81a08d9266008f944d0af5da7ef.jpg",
+        options: [
+          { id: 'sc1', name: "Vanilla Bean", price: 16.99 },
+          { id: 'sc2', name: "Lavender Fields", price: 16.99 },
+          { id: 'sc3', name: "Ocean Breeze", price: 16.99 },
+          { id: 'sc4', name: "Fresh Cotton", price: 16.99 }
+        ]
+      },
+      {
+        id: 7,
+        name: "Guardian Bell",
+        price: 499.00,
+        category: "men",
+        image: "https://i.pinimg.com/736x/91/67/2c/91672cb5758229f6d95c30a05d42ed9b.jpg",
+        options: [
+          { id: 'gb1', name: "Classic Guardian Bell", price: 499.00 },
+          { id: 'gb2', name: "Dragon Design", price: 549.00 },
+          { id: 'gb3', name: "Celtic Knot", price: 529.00 },
+          { id: 'gb4', name: "Skull Design", price: 519.00 }
+        ]
+      },
+      {
+        id: 8,
+        name: "Gaming Accessories Kit",
+        price: 799.00,
+        category: "men",
+        image: "https://i.pinimg.com/736x/64/8a/0e/648a0e8336350a296d2766123b7c4e39.jpg",
+        options: [
+          { id: 'g1', name: "Mouse Pad", price: 199.00 },
+          { id: 'g2', name: "Cable Organizer", price: 149.00 },
+          { id: 'g3', name: "Thumb Grips for Controllers", price: 99.00 },
+          { id: 'g4', name: "Keycap Puller & Cleaning Brush", price: 199.00 },
+          { id: 'g5', name: "Gaming Stickers Pack", price: 149.00 }
+        ]
+      }
+    ];
+
+    let selectedItems = [];
+
+    const vibeButtons = document.querySelectorAll('.vibe-button');
+    const vibeDescriptions = {
+      'Fairytale': 'Create a magical experience with enchanted items and whimsical touches',
+      'Gothic': 'Dark and mysterious items for those who embrace the shadows',
+      'Minimalistic': 'Clean, simple, and elegant selections for the minimalist soul',
+      'Zodiac Sign Box': 'Personalized gifts based on astrological elements and cosmic energy',
+      'Music Lover\'s Box': 'Curated items for those who live life to their own soundtrack',
+      'Horror Lover\'s Box': 'Spooky and thrilling items for fans of the macabre',
+      'Pastel Dream': 'Soft, dreamy items in gentle pastel hues',
+      'Bookworm\'s Haven': 'Perfect gifts for those who love to get lost in stories',
+      'Kawaii Cutie': 'Adorable and cute items with Japanese-inspired charm',
+      'Dark Academia': 'Sophisticated items inspired by classical literature and learning',
+      'Forest Enchantment': 'Nature-inspired gifts with a touch of magic',
+      'Art Lover\'s Box': 'Creative items for those who appreciate artistic expression',
+      'Other': 'Create your own unique theme'
+    };
+
+    vibeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        vibeButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        let description = document.querySelector('.vibe-description');
+        if (!description) {
+          description = document.createElement('div');
+          description.className = 'vibe-description';
+          button.parentElement.after(description);
+        }
+        const vibeName = button.textContent;
+        description.textContent = vibeDescriptions[vibeName] || `Customize your gift box with a ${vibeName.toLowerCase()} theme`;
+        description.style.display = 'block';
+      });
+    });
+
+    function displayGiftItems(category = 'all') {
+      const grid = document.getElementById('giftItemsGrid');
+      grid.innerHTML = '';
+      const filteredItems = category === 'all' ? giftItems : giftItems.filter(item => item.category === category);
+      filteredItems.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'gift-item';
+        itemElement.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <div class="gift-item-details">
+            <div class="gift-item-name">${item.name}</div>
+            <div class="gift-item-price">₹${item.price.toFixed(2)}</div>
+            <button class="add-to-box-btn" onclick="addToBox(${item.id})">Add to Box</button>
+          </div>
+        `;
+        grid.appendChild(itemElement);
+      });
+    }
+
+    function showOptions(item) {
+      const modal = document.createElement('div');
+      modal.className = 'options-modal';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <h3>${item.name} Options</h3>
+          <div class="options-list">
+            ${item.options.map(option => `
+              <div class="option-item">
+                <label>
+                  <input type="checkbox" data-id="${option.id}" data-name="${option.name}" data-price="${option.price}">
+                  ${option.name} - ₹${option.price.toFixed(2)}
+                </label>
+              </div>
+            `).join('')}
+          </div>
+          <div class="modal-buttons">
+            <button onclick="addSelectedOptions(this)" class="add-selected">Add Selected</button>
+            <button onclick="closeModal(this)" class="close-modal">Close</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+
+    function addToBox(itemId) {
+      const item = giftItems.find(item => item.id === itemId);
+      if (!item) return;
+      if (item.redirectTo) {
+        window.location.href = item.redirectTo;
+        return;
+      }
+      if (item.options) {
+        showOptions(item);
+      } else {
+        selectedItems.push(item);
+        updateGiftBox();
+      }
+    }
+
+    function addSelectedOptions(button) {
+      const modal = button.closest('.options-modal');
+      const selectedCheckboxes = modal.querySelectorAll('input[type="checkbox"]:checked');
+      selectedCheckboxes.forEach(checkbox => {
+        const option = {
+          id: checkbox.dataset.id,
+          name: checkbox.dataset.name,
+          price: parseFloat(checkbox.dataset.price)
+        };
+        selectedItems.push(option);
+      });
+      updateGiftBox();
+      closeModal(button);
+    }
+
+    function closeModal(button) {
+      const modal = button.closest('.options-modal');
+      modal.remove();
+    }
+
+    function removeFromBox(index) {
+      selectedItems.splice(index, 1);
+      updateGiftBox();
+    }
+
+    function updateGiftBox() {
+      const boxItems = document.getElementById('giftBoxItems');
+      const itemCount = document.getElementById('itemCount');
+      const totalPrice = document.getElementById('totalPrice');
+      boxItems.innerHTML = '';
+      selectedItems.forEach((item, index) => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'box-item';
+        itemElement.innerHTML = `
+          <span>${item.name}</span>
+          <div>
+            <span>₹${item.price.toFixed(2)}</span>
+            <button class="box-item-remove" onclick="removeFromBox(${index})">×</button>
+          </div>
+        `;
+        boxItems.appendChild(itemElement);
+      });
+      const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
+      itemCount.textContent = `(${selectedItems.length} items)`;
+      totalPrice.textContent = `Total: ₹${total.toFixed(2)}`;
+    }
+
+    const giftBox = document.querySelector('.gift-box');
+    let isDragging = false;
+    let currentX;
+    let currentY;
+    let initialX;
+    let initialY;
+    let xOffset = 0;
+    let yOffset = 0;
+
+    const handle = document.querySelector('.gift-box-handle');
+    handle.addEventListener('mousedown', dragStart);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', dragEnd);
+
+    function dragStart(e) {
+      initialX = e.clientX - xOffset;
+      initialY = e.clientY - yOffset;
+      if (e.target === handle) {
+        isDragging = true;
+      }
+    }
+
+    function drag(e) {
+      if (isDragging) {
+        e.preventDefault();
+        currentX = e.clientX - initialX;
+        currentY = e.clientY - initialY;
+        xOffset = currentX;
+        yOffset = currentY;
+        setTranslate(currentX, currentY, giftBox);
+      }
+    }
+
+    function setTranslate(xPos, yPos, el) {
+      el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    }
+
+    function dragEnd() {
+      initialX = currentX;
+      initialY = currentY;
+      isDragging = false;
+    }
+
+    document.querySelectorAll('.category-button').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelector('.category-button.active').classList.remove('active');
+        button.classList.add('active');
+        displayGiftItems(button.dataset.category);
+      });
+    });
+
+    displayGiftItems();
+  </script>
+</body>
+</html>

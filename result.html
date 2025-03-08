@@ -3,76 +3,263 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Personalized Gift Awaits!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Ribeye+Marrow&family=Coiny&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Your Personalized Gift Awaits! - JoyBox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #ffefd9;
-      color: #3d2a00;
+      font-family: 'DM Sans', sans-serif;
+      background: #ffffff;
+      color: #2C3338;
       overflow-x: hidden;
+      line-height: 1.6;
     }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: white;
+      color: #2C3338;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2C3338;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #71461b;
+    }
+
     .container {
       max-width: 800px;
       margin: 40px auto;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
-    .result-title {
-      color: #664600;
-      font-family: 'Coiny', cursive;
-      margin-bottom: 20px;
+
+    .celebration-banner {
+      background: linear-gradient(45deg, #71461b20, #2C333810);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
     }
+
+    .result-title {
+      color: #2C3338;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
     .gift-description {
       font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      color: #2C3338;
     }
+
+    .highlight {
+      color: #71461b;
+      font-weight: 500;
+    }
+
+    .gift-preview {
+      position: relative;
+      margin: 3rem 0;
+    }
+
     .gift-image {
-      max-width: 200px;
-      border-radius: 10px;
+      max-width: 300px;
+      border-radius: 8px;
       margin: 20px auto;
       display: block;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
-    .back-to-home,
-    .buy-now {
+
+    .gift-image:hover {
+      transform: scale(1.02);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+      text-align: left;
+    }
+
+    .feature-item {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 3px solid #71461b;
+    }
+
+    .feature-item h3 {
+      color: #2C3338;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .delivery-info {
+      background: #2C33380a;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .btn {
       display: inline-block;
-      margin-top: 20px;
-      color: #A77D54;
+      padding: 1rem 2rem;
       text-decoration: none;
       font-weight: 500;
-      padding: 10px 20px;
-      border: 2px solid #A77D54;
-      border-radius: 5px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
     }
-    .back-to-home:hover,
-    .buy-now:hover {
-      background: #A77D54;
-      color: #fff;
+
+    .btn-primary {
+      background: #2C3338;
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #71461b;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #2C3338;
+      border: 2px solid #2C3338;
+    }
+
+    .btn-secondary:hover {
+      background: #2C3338;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
+  <nav class="navbar">
+    <div class="brand-name">JoyBox</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutUs.html">About Us</a></li>
+      <li><a href="contactUs.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
-    <h2 class="result-title">Your Personalized Gift Awaits!</h2>
+    <div class="celebration-banner">
+      <h1 class="result-title">Your Perfect Gift Has Been Curated!</h1>
+      <p class="gift-description">
+        We're excited to present a thoughtfully crafted gift box that's uniquely yours. Every item has been carefully selected to match your personality and preferences.
+      </p>
+    </div>
+
+    <div class="gift-preview">
+      <img src="https://i.pinimg.com/736x/eb/53/8c/eb538cccf1fb2120cd671c8ee4f5c6ee.jpg" alt="Your Curated Gift Box" class="gift-image">
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-item">
+        <h3>Personalized Selection</h3>
+        <p>Items chosen based on your unique preferences and interests</p>
+      </div>
+      <div class="feature-item">
+        <h3>Premium Quality</h3>
+        <p>Carefully sourced products from trusted artisans and brands</p>
+      </div>
+      <div class="feature-item">
+        <h3>Thoughtful Details</h3>
+        <p>Beautiful packaging with a personal touch</p>
+      </div>
+    </div>
+
     <p class="gift-description">
-      Based on your unique personality and preferences, we've crafted something special just for you. Your gift box will contain carefully selected items that reflect your individuality and bring joy to your everyday life.
+      Your gift box will include specially selected items that align with your love of 
+      <span class="highlight" id="interest1">reading</span>, 
+      <span class="highlight" id="interest2">nature</span>, and 
+      <span class="highlight" id="interest3">self-care</span>. 
+      We've added some surprise elements that we know you'll love!
     </p>
-    <img src="https://i.pinimg.com/736x/eb/53/8c/eb538cccf1fb2120cd671c8ee4f5c6ee.jpg" alt="Mystery Gift Box" class="gift-image">
-    <p class="gift-description">
-      We can't reveal everything (that would ruin the surprise!), but we can tell you that your box will include elements that connect with your love of <span id="interest1">reading</span>, <span id="interest2">nature</span>, and <span id="interest3">self-care</span>. Each item has been thoughtfully chosen to bring a smile to your face.
-    </p>
-    <p class="gift-description">
-      Your gift will be ready within 5-7 business days.
-    </p>
-    <a href="index.html" class="back-to-home">Back to Home</a>
-    <a href="buy.html" class="buy-now">Buy Now / Add to Cart</a>
+
+    <div class="delivery-info">
+      <h3>Delivery Information</h3>
+      <p>Your carefully curated gift box will be ready for shipping within 5-7 business days. We'll handle your gift with extra care to ensure it arrives in perfect condition.</p>
+    </div>
+
+    <div class="button-group">
+      <a href="buy.html" class="btn btn-primary">Complete Your Purchase</a>
+      <a href="index.html" class="btn btn-secondary">Continue Shopping</a>
+    </div>
   </div>
+
+  <script>
+    // You can add dynamic content population here based on form responses
+    document.addEventListener('DOMContentLoaded', function() {
+      // Example of dynamic content update
+      const interests = ['reading', 'art', 'music', 'travel', 'cooking'];
+      const randomInterests = interests.sort(() => 0.5 - Math.random()).slice(0, 3);
+      
+      document.getElementById('interest1').textContent = randomInterests[0];
+      document.getElementById('interest2').textContent = randomInterests[1];
+      document.getElementById('interest3').textContent = randomInterests[2];
+    });
+  </script>
 </body>
 </html>

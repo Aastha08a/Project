@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handmade Flowers That Last Forever - JoyBox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'DM Sans', sans-serif;
+            background: #ffffff49;
+            color: #3d2a00;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #ffffffbd;
+            color: rgb(0, 0, 0);
+            backdrop-filter: blur(5px);
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffefd9;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 40px 20px;
+            background: url('https://i.pinimg.com/736x/da/21/63/da216320f025b1909ab3db666c25d817.jpg') center/cover;
+            height: 300px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(139, 99, 60, 0.568);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro-section {
+            padding: 50px 20px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .intro-section h2 {
+            font-size: 2.2rem;
+            color: #664600;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .flower-types {
+            padding: 50px 20px;
+            background: #e2ccab26;
+            border-radius: 15px;
+            margin: 30px 50px;
+        }
+
+        .flower-types h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #664600;
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 30px;
+        }
+
+        .flower-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .flower-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .flower-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .flower-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .flower-info {
+            padding: 20px;
+        }
+
+        .flower-info h3 {
+            font-size: 1.5rem;
+            color: #664600;
+            margin-top: 0;
+        }
+
+        .flower-info p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #3d2a00;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #A77D54;
+            margin: 10px 0;
+        }
+
+        .add-to-cart {
+            background: #664600;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        .add-to-cart:hover {
+            background: #352400;
+        }
+
+        .care-section {
+            padding: 50px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .care-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #664600;
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 30px;
+        }
+
+        .care-tips {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .care-tips ul {
+            padding-left: 20px;
+        }
+
+        .care-tips li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .custom-order {
+            padding: 50px 20px;
+            text-align: center;
+            background: #A77D54;
+            color: white;
+            margin-top: 50px;
+        }
+
+        .custom-order h2 {
+            font-size: 2.2rem;
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .custom-order p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .custom-button {
+            background: #664600;
+            padding: 15px 30px;
+            color: white;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .custom-button:hover {
+            transform: scale(1.1);
+            background: #352400;
+        }
+
+        .testimonials {
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            margin: 50px;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #664600;
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #664600;
+        }
+
+        .join-club {
+            background-color: #A77D54;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .join-club h3 {
+            font-size: 33px;
+            margin-bottom: 10px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .join-club p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .join-club input {
+            padding: 10px;
+            width: 50%;
+            max-width: 300px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .join-club button {
+            background: #4a2d00;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .join-club button:hover {
+            background: #352400;
+        }
+
+        footer {
+            background: #664600;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .flower-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flower-types, .custom-order {
+                margin: 30px 20px;
+            }
+            
+            .join-club input {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-name">JoyBox</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutUs.html">About Us</a></li>
+            <li><a href="contactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <div class="page-header">
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <h1>Handmade Flowers That Last Forever</h1>
+            <p>Beautiful, timeless creations that bring joy for years to come</p>
+        </div>
+    </div>
+    
+    <section class="intro-section">
+        <h2>Why Choose Our Forever Flowers?</h2>
+        <p>Our handcrafted forever flowers are meticulously created to capture the beauty of real flowers while offering the benefit of lasting for years. Each petal is carefully shaped, colored, and arranged to create stunning, lifelike blooms that never wilt or fade. Perfect for home decor, special occasions, or as thoughtful gifts that continue to bring joy long after they're given.</p>
+    </section>
+    
+    <section class="flower-types">
+        <h2>Our Collection</h2>
+        <div class="flower-grid">
+            <!-- Red Roses Bouquet -->
+            <div class="flower-item">
+                <img src="https://i.pinimg.com/736x/41/02/f5/4102f5dc3aff343750ba1a0b7cd101af.jpg" alt="Red Roses Bouquet">
+                <div class="flower-info">
+                    <h3>Red Roses Bouquet</h3>
+                    <p>A classic bouquet of vibrant red roses, perfect for expressing love and passion.</p>
+                    <div class="price">₹24.99 - ₹39.99</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Crochet Flowers Bouquet -->
+            <div class="flower-item">
+                <img src="https://i.pinimg.com/736x/51/67/54/51675466143d349edf2746790f23fab5.jpg" alt="Crochet Flowers Bouquet">
+                <div class="flower-info">
+                    <h3>Crochet Flowers Bouquet</h3>
+                    <p>Handcrafted with care, these crochet flowers form a unique and elegant bouquet ideal for any celebration.</p>
+                    <div class="price">₹29.99 - ₹49.99</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Glitter Roses Bouquet -->
+            <div class="flower-item">
+                <img src="https://i.pinimg.com/736x/51/f7/b2/51f7b28fd46976051dca2ee877e3504d.jpg" alt="Glitter Roses Bouquet">
+                <div class="flower-info">
+                    <h3>Glitter Roses Bouquet</h3>
+                    <p>Sparkling and glamorous, this bouquet of glitter roses is sure to impress and add a touch of magic.</p>
+                    <div class="price">₹19.99 - ₹34.99</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Pink Roses Bouquet -->
+            <div class="flower-item">
+                <img src="https://i.pinimg.com/736x/f2/f0/ee/f2f0ee715c76210a776d7ce794df1318.jpg" alt="Pink Roses Bouquet">
+                <div class="flower-info">
+                    <h3>Pink Roses Bouquet</h3>
+                    <p>Soft and delicate pink roses arranged in a charming bouquet, ideal for romantic gestures.</p>
+                    <div class="price">₹39.99 - ₹69.99</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Butterfly Bouquet -->
+            <div class="flower-item">
+                <img src="https://i.pinimg.com/736x/66/17/4e/66174e34842133367b710ea0cadc8d02.jpg" alt="Butterfly Bouquet">
+                <div class="flower-info">
+                    <h3>Butterfly Bouquet</h3>
+                    <p>A whimsical bouquet featuring delicate butterfly accents among vibrant blooms, perfect for a dreamy touch.</p>
+                    <div class="price">₹34.99 - ₹59.99</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Tulip Bouquet -->
+            <div class="flower-item">
+                <img src="https://i.pinimg.com/736x/4f/2c/9f/4f2c9fa4fc34f6edfb5baba40800a8fd.jpg" alt="Tulip Bouquet">
+                <div class="flower-info">
+                    <h3>Tulip Bouquet</h3>
+                    <p>Charming tulips in full bloom, arranged in a lovely bouquet that brightens any space.</p>
+                    <div class="price">₹27.99 - ₹47.99</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="flower-item">
+               <img src="https://i.pinimg.com/736x/b4/e1/b3/b4e1b3cc4f0282ce8f31b8b0d40eb8a9.jpg" alt="Claw Clips Bouquet">
+               <div class="flower-info">
+                   <h3>Claw Clips Bouquet</h3>
+                   <p>Modern meets classic with this unique bouquet featuring stylish claw clips adorned with vibrant blooms. Perfect as a chic accessory or a thoughtful gift.</p>
+                   <div class="price">₹29.99 - ₹49.99</div>
+                   <button class="add-to-cart">Add to Cart</button>
+               </div>
+           </div>           
+
+        </div>
+    </section>
+    
+    <section class="care-section">
+        <h2>Care Instructions</h2>
+        <div class="care-tips">
+            <ul>
+                <li><strong>Dust regularly:</strong> Use a soft brush or compressed air to gently remove dust from your forever flowers.</li>
+                <li><strong>Avoid direct sunlight:</strong> While our flowers won't wilt, prolonged exposure to direct sunlight may cause colors to fade over time.</li>
+                <li><strong>Keep away from moisture:</strong> Paper and fabric flowers should be kept in dry areas to maintain their shape and color.</li>
+                <li><strong>Handle with care:</strong> Though durable, handle your forever flowers gently to preserve their delicate details.</li>
+                <li><strong>Store properly:</strong> If you need to store your flowers, place them in a box with tissue paper to protect them.</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section class="custom-order">
+      <h2>Custom Orders</h2>
+      <p>Looking for something special? We offer custom-made forever flowers tailored to your preferences. Choose your favorite flowers, colors, and arrangement style for a truly unique creation.</p>
+      <button class="custom-button">Request Custom Order</button>
+  </section>
+  
+  <section class="testimonials">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial-grid">
+          <div class="testimonial-item">
+              <p class="testimonial-text">"I received a bouquet of paper roses for my anniversary three years ago, and they still look as beautiful as the day I got them. Such a meaningful gift that keeps on giving!"</p>
+              <p class="testimonial-author">- Sarah M.</p>
+          </div>
+          
+          <div class="testimonial-item">
+              <p class="testimonial-text">"The custom arrangement I ordered for my mother's birthday was absolutely stunning. The attention to detail is remarkable, and she loves that they'll never wilt."</p>
+              <p class="testimonial-author">- Michael T.</p>
+          </div>
+          
+          <div class="testimonial-item">
+              <p class="testimonial-text">"As someone with allergies, I could never enjoy real flowers in my home. These forever flowers have allowed me to decorate with beautiful blooms without any sneezing!"</p>
+              <p class="testimonial-author">- Jessica K.</p>
+          </div>
+      </div>
+  </section>
+    
+    <div class="join-club">
+        <h3>Join the Club</h3>
+        <p>Subscribe to our newsletter for exclusive offers and flower care tips!</p>
+        <input type="email" placeholder="Enter your email">
+        <button>Subscribe</button>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 JoyBox. All rights reserved.</p>
+    </footer>
+</body>
+</html>

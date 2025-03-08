@@ -4,36 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIY Section - JoyBox</title>
-    <link href="https://fonts.googleapis.com/css2?family=Ribeye+Marrow&family=Coiny&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #ffefd9;
-            color: #3d2a00;
+            font-family: 'DM Sans', sans-serif;
+            background: #faf6f3;
+            color: #2C3338;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
-            background: #A77D54;
-            color: white;
+            padding: 1rem 2rem;
+            background: white;
+            color: #2C3338;
+            box-shadow: 0 2px 5px rgba(113, 70, 27, 0.08);
         }
 
         .brand-name {
-            font-size: 1.8rem;
-            font-family: 'Coiny', cursive;
-            font-weight: bold;
+            font-size: 1.5rem;
+            font-family: 'DM Sans', sans-serif;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 2rem;
         }
 
         .nav-links li {
@@ -42,15 +45,20 @@
 
         .nav-links a {
             text-decoration: none;
-            color: white;
+            color: #2C3338;
             font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #71461b;
         }
 
         .hero {
             text-align: center;
             padding: 80px 20px;
             background: url('https://i.pinimg.com/736x/dd/8e/7b/dd8e7b260eec9b7fb60efc9d7af562a4.jpg') center/cover no-repeat;
-            color: white;
+            color: rgb(0, 0, 0);
             position: relative;
         }
 
@@ -60,7 +68,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(107, 82, 43, 0.4);
         }
 
         .hero-content {
@@ -69,165 +77,246 @@
         }
 
         .hero h1 {
-            font-size: 2.8rem;
-            font-family: 'Coiny', cursive;
-            background: #a77e548a;
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            background: rgba(255, 255, 255, 0.347);
             display: inline-block;
-            padding: 10px 20px;
-            border-radius: 10px;
+            padding: 2rem 3rem;
+            border-radius: 8px;
+            color: #000000;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             max-width: 600px;
             margin: 20px auto;
-            background: #a77e548a;
-            padding: 10px;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.347);
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: #000000;
         }
 
         .diy-intro {
             text-align: center;
-            padding: 50px 20px;
+            padding: 4rem 5%;
+            background: linear-gradient(to bottom, #faf6f3, #f5ede7);
         }
 
         .diy-intro h2 {
             font-size: 2.5rem;
-            font-family: 'Coiny', cursive;
-            color: #A77D54;
+            font-family: 'Playfair Display', serif;
+            color: #71461b;
         }
 
         .diy-intro p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 800px;
             margin: 20px auto;
             line-height: 1.8;
+            color: #2C3338;
         }
 
         .diy-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px 50px;
-            margin-bottom: 50px;
+            gap: 2rem;
+            padding: 2rem 5%;
+            background: #faf6f3;
         }
 
         .diy-item {
             background: white;
-            border-radius: 15px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 2px 15px rgba(113, 70, 27, 0.1);
+            transition: all 0.3s ease;
         }
 
         .diy-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(113, 70, 27, 0.15);
         }
 
         .diy-item img {
             width: 100%;
             height: 250px;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .diy-item:hover img {
+            transform: scale(1.05);
         }
 
         .diy-item-content {
-            padding: 20px;
+            padding: 1.5rem;
         }
 
         .diy-item h3 {
-            font-size: 1.5rem;
-            color: #A77D54;
-            margin-top: 0;
+            font-size: 1.3rem;
+            color: #71461b;
+            margin: 0 0 1rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .diy-item p {
-            color: #666;
-            margin-bottom: 15px;
+            color: #2C3338;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
         }
 
         .diy-item .price {
-            font-weight: bold;
-            color: #A77D54;
+            font-weight: 600;
+            color: #71461b;
             font-size: 1.2rem;
+            margin: 1rem 0;
         }
 
         .diy-item button {
-            background: #A77D54;
+            background: #71461b;
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
             cursor: pointer;
-            margin-top: 10px;
-            transition: background 0.3s ease;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
         }
 
         .diy-item button:hover {
-            background: #7b5b3b;
+            background: #8b563b;
+            transform: translateY(-2px);
         }
 
         .workshop-section {
-            background: #A77D54;
-            color: white;
-            padding: 50px 20px;
+            background-color: #693e1321;
+            color: #71461b;
+            padding: 4rem 5%;
             text-align: center;
-            margin-bottom: 50px;
         }
 
         .workshop-section h2 {
             font-size: 2.5rem;
-            font-family: 'Coiny', cursive;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
         }
 
         .workshop-section p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 800px;
             margin: 20px auto;
         }
 
         .workshop-form {
             max-width: 500px;
-            margin: 30px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            color: #3d2a00;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            color: #2C3338;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .workshop-form input, .workshop-form select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .workshop-form h3 {
+            color: #71461b;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .workshop-form input, 
+        .workshop-form select {
+            width: 90%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid rgba(113, 70, 27, 0.2);
+            border-radius: 4px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            background: #faf6f3;
+            transition: all 0.3s ease;
+        }
+
+        .workshop-form input:focus, 
+        .workshop-form select:focus {
+            outline: none;
+            border-color: #71461b;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(113, 70, 27, 0.1);
         }
 
         .workshop-form button {
-            background: #664600;
+            background: #71461b;
             color: white;
-            padding: 10px 20px;
+            padding: 1rem 2rem;
+            border-radius: 4px;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
         }
 
         .workshop-form button:hover {
-            background: #352400;
-        }
-
-        .footer {
-            text-align: center;
-            background: #A77D54;
-            color: white;
-            padding: 15px;
+            background: #8b563b;
+            transform: translateY(-2px);
         }
 
         .success-message {
             display: none;
-            color: green;
-            font-weight: bold;
-            margin-top: 15px;
+            color: #71461b;
+            font-weight: 500;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(113, 70, 27, 0.1);
+            border-radius: 4px;
+        }
+
+        .footer {
+            text-align: center;
+            background: white;
+            color: #2C3338;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(113, 70, 27, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                width: 150px;
+                padding: 1rem;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(113, 70, 27, 0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                padding: 1.5rem 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+
+            .diy-grid {
+                padding: 1rem;
+            }
+
+            .workshop-form {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
         }
     </style>
 </head>
@@ -256,7 +345,7 @@
     </section>
 
     <div class="diy-grid">
-
+        
         <div class="diy-item">
             <img src="https://i.pinimg.com/736x/32/bf/47/32bf47f8ed803de355b4e1b03233e585.jpg" alt="Explosion Box Kit">
             <div class="diy-item-content">
@@ -271,7 +360,7 @@
             <img src="https://i.pinimg.com/736x/f2/96/43/f29643d04aa2ec41cb14ac2de5a224e0.jpg" alt="Customized Scrapbook Kit">
             <div class="diy-item-content">
                 <h3>Customized Scrapbook Kit</h3>
-                <p>Design a beautiful scrapbook filled with memories. Includes decorative papers, stickers, and embellishments.</p>
+                <p>Design a beautiful scrapbook filled with memories. Includes decorative papers, stickers, and embellishments.                                                        </p>
                 <p class="price">₹799</p>
                 <button onclick="addToCart('Customized Scrapbook Kit')">Add to Cart</button>
             </div>
@@ -311,7 +400,7 @@
             <img src="https://i.pinimg.com/736x/e7/4b/55/e74b556f478f51061269d2023ba1efc6.jpg" alt="Memory Jar Kit">
             <div class="diy-item-content">
                 <h3>Memory Jar Kit</h3>
-                <p>Create a beautiful jar filled with personalized messages. Perfect for graduations, birthdays, or as a thoughtful gift.</p>
+                <p>Create a beautiful jar filled with personalized messages. Perfect for birthdays, or as a thoughtful gift.</p>
                 <p class="price">₹349</p>
                 <button onclick="addToCart('Memory Jar Kit')">Add to Cart</button>
             </div>
@@ -407,9 +496,7 @@
             </div>
         </div>
         
-
-     </div>
-
+    </div>
 
     <section class="workshop-section">
         <h2>Join Our DIY Workshops</h2>

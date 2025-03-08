@@ -4,176 +4,223 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gift to Self - JoyBox</title>
-  <link href="https://fonts.googleapis.com/css2?family=Ribeye+Marrow&family=Coiny&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #ffefd9;
-      color: #3d2a00;
+      font-family: 'DM Sans', sans-serif;
+      background: #ffffff;
+      color: #2C3338;
       overflow-x: hidden;
+      line-height: 1.6;
     }
+
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
-      background: #A77D54;
-      color: white;
-      backdrop-filter: blur(5px);
+      padding: 1rem 2rem;
+      background: white;
+      color: #2C3338;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+
     .brand-name {
-      font-size: 1.8rem;
-      font-family: 'Coiny', cursive;
-      font-weight: bold;
+      font-size: 1.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
     }
+
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 2rem;
       margin: 0;
       padding: 0;
     }
+
     .nav-links li {
       display: inline;
     }
+
     .nav-links a {
       text-decoration: none;
-      color: white;
+      color: #2C3338;
       font-size: 1.2rem;
+      transition: color 0.3s ease;
     }
+
+    .nav-links a:hover {
+      color: #71461b;
+    }
+
     .container {
       max-width: 800px;
       margin: 40px auto;
       padding: 30px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      background: rgba(138, 74, 0, 0.096);
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+
     .page-title {
       text-align: center;
-      font-family: 'Coiny', cursive;
-      color: #664600;
+      font-family: 'Playfair Display', serif;
+      color: #2C3338;
+      font-weight: 600;
       margin-bottom: 30px;
     }
+
     .intro-text {
       text-align: center;
       margin-bottom: 30px;
       line-height: 1.6;
       font-size: 1.1rem;
     }
+
     .form-container {
-      background: #fff5e6;
+      background: white;
       padding: 25px;
-      border-radius: 10px;
-      box-shadow: inset 0 0 10px rgba(167, 125, 84, 0.2);
+      border-radius: 8px;
     }
+
     .form-section {
       margin-bottom: 30px;
     }
+
     .form-section h3 {
-      color: #A77D54;
-      border-bottom: 2px solid #A77D54;
+      color: #2C3338;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      border-bottom: 2px solid #71461b;
       padding-bottom: 10px;
       margin-bottom: 20px;
     }
+
     .form-group {
       margin-bottom: 20px;
     }
+
     label {
       display: block;
       margin-bottom: 8px;
       font-weight: 500;
-      color: #664600;
+      color: #2C3338;
     }
+
     input[type="text"],
     input[type="email"],
     input[type="tel"],
+    input[type="date"],
     select,
     textarea {
       width: 100%;
       padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
       font-size: 1rem;
       background: white;
       box-sizing: border-box;
+      transition: border-color 0.3s ease;
     }
-    /* Increased size for the birthday/date input */
-    input[type="date"] {
-      padding: 14px;
-      font-size: 1.1rem;
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="date"]:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #71461b;
     }
+
     textarea {
       min-height: 100px;
       resize: vertical;
     }
+
     .radio-group, .checkbox-group {
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
       margin-top: 10px;
     }
+
     .radio-option, .checkbox-option {
       display: flex;
       align-items: center;
       gap: 5px;
     }
+
     .submit-btn {
-      background: #664600;
+      background: #2C3338;
       color: white;
       border: none;
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border-radius: 50px;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 4px;
       cursor: pointer;
       display: block;
       margin: 30px auto 0;
       transition: all 0.3s ease;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
     }
+
     .submit-btn:hover {
-      background: #352400;
-      transform: scale(1.05);
+      background: #71461b;
+      transform: translateY(-2px);
     }
+
     .result-container {
       display: none;
       margin-top: 40px;
       text-align: center;
       padding: 30px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      border: 2px dashed #A77D54;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border: 2px dashed #71461b;
     }
+
     .result-title {
-      color: #664600;
-      font-family: 'Coiny', cursive;
+      color: #2C3338;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
       margin-bottom: 20px;
     }
+
     .gift-description {
       font-size: 1.1rem;
       line-height: 1.6;
       margin-bottom: 20px;
     }
+
     .gift-image {
       max-width: 200px;
-      border-radius: 10px;
+      border-radius: 8px;
       margin: 20px auto;
       display: block;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+
     .back-to-home {
       display: inline-block;
       margin-top: 20px;
-      color: #A77D54;
+      color: #71461b;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
+
     .back-to-home:hover {
-      text-decoration: underline;
+      color: #2C3338;
     }
+
     @media (max-width: 768px) {
       .container {
         padding: 20px;
@@ -361,7 +408,6 @@
             <label for="special-message">Any special message you'd like to include with your gift?</label>
             <textarea id="special-message" name="special-message"></textarea>
           </div>
-          <!-- New column for specific gift inclusion -->
           <div class="form-group">
             <label for="specific-gift">Anything specific you'd like included in your gift?</label>
             <textarea id="specific-gift" name="specific-gift"></textarea>
@@ -381,14 +427,11 @@
         <button type="submit" class="submit-btn">Discover My Perfect Gift</button>
       </form>
     </div>
-
-
   </div>
 
   <script>
     document.getElementById('selfGiftForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      // Redirect to the new result page after submission
       window.location.href = 'result.html';
     });
   </script>
